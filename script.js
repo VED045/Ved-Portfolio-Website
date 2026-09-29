@@ -7,7 +7,7 @@ const projects = [
     href: 'https://github.com/VED045/daily-news-intelligence',
     className: 'screen-news',
     metric: 'GEMINI + FASTAPI + REACT',
-    visual: `<div class="news-visual"><div class="news-visual-top"><span>DAINIK-VIDYA</span><b>● LIVE BRIEF</b></div><div class="news-feature"><span>TOP STORY / 01</span><strong>The world<br>in focus.</strong><small>AI-POWERED DAILY BRIEFING</small></div><div class="news-mini-list"><div><b>02</b><span>WORLD</span><strong>Global stories, clearly ranked</strong></div><div><b>03</b><span>TECH</span><strong>Signals behind the headlines</strong></div></div><div class="news-trend"><span>TRENDING NOW</span><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>`
+    visual: `<div class="product-shot news-shot"><div class="shot-browser"><i></i><i></i><i></i><span>dainik-vidya / dashboard</span></div><img class="live-product-capture dainik-product-capture" src="assets/dainik-vidya-screen.png" alt="Actual Dainik Vidya dashboard webpage"><div class="shot-caption"><span>ACTUAL WEB APP</span><strong>TOP 10 · NEWS · TRENDS</strong></div></div>`
   },
   {
     name: 'TripMate',
@@ -17,7 +17,7 @@ const projects = [
     href: 'https://github.com/VED045/TripMate',
     className: 'screen-trip',
     metric: 'NEXT.JS + SUPABASE + PWA',
-    visual: `<div class="trip-visual"><div class="trip-sky"><span class="trip-sun"></span><span class="trip-mountain mountain-back"></span><span class="trip-mountain mountain-front"></span><div class="trip-route"><i></i><i></i><span>GOA / INDIA</span></div></div><div class="trip-crew"><span>CREW TRIP</span><strong>Goa, together.</strong><small>4 PEOPLE · 6 DAYS</small></div><div class="trip-summary"><div><span>TOTAL SPENT</span><strong>₹24,800</strong></div><div><span>TO SETTLE</span><strong>₹2,340</strong></div></div><div class="trip-avatars"><i>V</i><i>A</i><i>S</i><i>R</i><span>ALL IN SYNC</span></div></div>`
+    visual: `<div class="product-shot trip-shot"><div class="shot-browser"><i></i><i></i><i></i><span>tripmate / live product</span></div><img class="live-product-capture" src="assets/tripmate-screen.png" alt="TripMate live website interface"><div class="shot-caption"><span>LIVE UI CAPTURE</span><strong>PLAN · SPLIT · VAULT</strong></div></div>`
   },
   {
     name: 'Player Tracking',
@@ -143,27 +143,56 @@ cameraButton.addEventListener('click', () => {
 renderProject(0, true);
 
 if (!prefersReducedMotion) {
-  let touching = false, touchStartX = 0;
+  let phoneDragging = false;
+  let phonePointer = null;
+  let phoneLastX = 0;
+  let phoneLastY = 0;
+  let phoneRotationX = 0;
+  let phoneRotationY = 0;
+
+  const applyPhoneRotation = () => {
+    phone.style.setProperty('--rx', `${phoneRotationX.toFixed(2)}deg`);
+    phone.style.setProperty('--ry', `${phoneRotationY.toFixed(2)}deg`);
+  };
+
   stage.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'touch') { touching = true; touchStartX = event.clientX; }
+    if (event.target.closest('button, a')) return;
+    phoneDragging = true;
+    phonePointer = event.pointerId;
+    phoneLastX = event.clientX;
+    phoneLastY = event.clientY;
+    phone.classList.add('is-dragging');
+    stage.setPointerCapture?.(event.pointerId);
   });
-  stage.addEventListener('pointerup', event => {
-    if (!touching) return;
-    const delta = event.clientX - touchStartX;
-    if (Math.abs(delta) > 45) selectProject(activeProject + (delta < 0 ? 1 : -1));
-    touching = false;
-  });
+
   stage.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch') return;
-    const rect = stage.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - .5;
-    const y = (event.clientY - rect.top) / rect.height - .5;
-    phone.style.setProperty('--ry', `${(x * 17).toFixed(2)}deg`);
-    phone.style.setProperty('--rx', `${(-y * 12).toFixed(2)}deg`);
+    if (!phoneDragging || event.pointerId !== phonePointer) return;
+    const deltaX = event.clientX - phoneLastX;
+    const deltaY = event.clientY - phoneLastY;
+    phoneRotationY += deltaX * .62;
+    phoneRotationX = Math.max(-55, Math.min(55, phoneRotationX - deltaY * .48));
+    phoneLastX = event.clientX;
+    phoneLastY = event.clientY;
+    applyPhoneRotation();
   });
-  stage.addEventListener('pointerleave', () => {
-    phone.style.setProperty('--ry', '0deg');
-    phone.style.setProperty('--rx', '0deg');
+
+  const stopPhoneDrag = event => {
+    if (!phoneDragging || (event.pointerId !== undefined && event.pointerId !== phonePointer)) return;
+    phoneDragging = false;
+    phonePointer = null;
+    phone.classList.remove('is-dragging');
+  };
+  stage.addEventListener('pointerup', stopPhoneDrag);
+  stage.addEventListener('pointercancel', stopPhoneDrag);
+  stage.addEventListener('dblclick', event => {
+    if (event.target.closest('button, a')) return;
+    phoneRotationX = 0;
+    phoneRotationY = 0;
+    phone.classList.remove('flipped');
+    panel.inert = false;
+    rotateButton.setAttribute('aria-label', 'Rotate phone to view the back');
+    rotateButton.innerHTML = 'ROTATE <span>⟳</span>';
+    applyPhoneRotation();
   });
 }
 
@@ -256,15 +285,68 @@ document.querySelectorAll('[data-command]').forEach(button => button.addEventLis
 if (!prefersReducedMotion) {
   const laptopVisual = document.querySelector('.laptop-visual');
   const laptop = document.getElementById('laptop');
+  let laptopDragging = false;
+  let laptopPointer = null;
+  let laptopLastX = 0;
+  let laptopLastY = 0;
+  let laptopRotationX = 0;
+  let laptopRotationY = 0;
+
+  const applyLaptopRotation = () => {
+    laptop.style.setProperty('--laptop-rx', `${laptopRotationX.toFixed(2)}deg`);
+    laptop.style.setProperty('--laptop-ry', `${laptopRotationY.toFixed(2)}deg`);
+  };
+
+  laptopVisual.addEventListener('pointerdown', event => {
+    if (event.target.closest('input, button, a')) return;
+    laptopDragging = true;
+    laptopPointer = event.pointerId;
+    laptopLastX = event.clientX;
+    laptopLastY = event.clientY;
+    laptop.classList.add('is-dragging');
+    laptopVisual.setPointerCapture?.(event.pointerId);
+  });
   laptopVisual.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch') return;
-    const rect = laptopVisual.getBoundingClientRect();
-    laptop.style.setProperty('--laptop-ry', `${((event.clientX - rect.left) / rect.width - .5) * 8}deg`);
-    laptop.style.setProperty('--laptop-rx', `${((event.clientY - rect.top) / rect.height - .5) * -6}deg`);
-  }, { passive: true });
-  laptopVisual.addEventListener('pointerleave', () => {
-    laptop.style.setProperty('--laptop-ry', '0deg');
-    laptop.style.setProperty('--laptop-rx', '0deg');
+    if (!laptopDragging || event.pointerId !== laptopPointer) return;
+    laptopRotationY = Math.max(-24, Math.min(24, laptopRotationY + (event.clientX - laptopLastX) * .18));
+    laptopRotationX = Math.max(-16, Math.min(16, laptopRotationX - (event.clientY - laptopLastY) * .15));
+    laptopLastX = event.clientX;
+    laptopLastY = event.clientY;
+    applyLaptopRotation();
+  });
+  const stopLaptopDrag = event => {
+    if (!laptopDragging || (event.pointerId !== undefined && event.pointerId !== laptopPointer)) return;
+    laptopDragging = false;
+    laptopPointer = null;
+    laptop.classList.remove('is-dragging');
+  };
+  laptopVisual.addEventListener('pointerup', stopLaptopDrag);
+  laptopVisual.addEventListener('pointercancel', stopLaptopDrag);
+  laptopVisual.addEventListener('dblclick', event => {
+    if (event.target.closest('input, button, a')) return;
+    laptopRotationX = 0;
+    laptopRotationY = 0;
+    applyLaptopRotation();
   });
 }
+
+document.querySelectorAll('.experience-card').forEach(card => {
+  const toggle = card.querySelector('.experience-toggle');
+  const details = card.querySelector('.experience-details');
+  details.setAttribute('aria-hidden', 'true');
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    toggle.innerHTML = `${expanded ? 'VIEW' : 'HIDE'} IMPACT <span>${expanded ? '+' : '−'}</span>`;
+    card.classList.toggle('is-expanded', !expanded);
+    details.setAttribute('aria-hidden', String(expanded));
+  });
+  if (!prefersReducedMotion) {
+    card.addEventListener('pointermove', event => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+    }, { passive: true });
+  }
+});
 
