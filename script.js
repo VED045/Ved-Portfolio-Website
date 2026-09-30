@@ -7,6 +7,8 @@ const projects = [
     href: 'https://github.com/VED045/daily-news-intelligence',
     className: 'screen-news',
     metric: 'GEMINI + FASTAPI + REACT',
+    impact: 'MULTI-SOURCE INTELLIGENCE',
+    impactDetail: 'Curated news, trends, bookmarks, and automated daily digests in one workflow.',
     visual: `<div class="product-shot news-shot"><div class="shot-browser"><i></i><i></i><i></i><span>dainik-vidya / dashboard</span></div><img class="live-product-capture dainik-product-capture" src="assets/dainik-vidya-screen.png" alt="Actual Dainik Vidya dashboard webpage"><div class="shot-caption"><span>ACTUAL WEB APP</span><strong>TOP 10 · NEWS · TRENDS</strong></div></div>`
   },
   {
@@ -17,6 +19,8 @@ const projects = [
     href: 'https://github.com/VED045/TripMate',
     className: 'screen-trip',
     metric: 'NEXT.JS + SUPABASE + PWA',
+    impact: 'ONE SHARED TRIP HUB',
+    impactDetail: 'Keeps group expenses, settlements, memories, and plans in sync.',
     visual: `<div class="product-shot trip-shot"><div class="shot-browser"><i></i><i></i><i></i><span>tripmate / live product</span></div><img class="live-product-capture" src="assets/tripmate-screen.png" alt="TripMate live website interface"><div class="shot-caption"><span>LIVE UI CAPTURE</span><strong>PLAN · SPLIT · VAULT</strong></div></div>`
   },
   {
@@ -27,6 +31,8 @@ const projects = [
     href: 'https://github.com/VED045/Players_Tracking_Repo_Ved',
     className: 'screen-player',
     metric: 'YOLOv8 + RESNET50',
+    impact: 'CONSISTENT PLAYER IDS',
+    impactDetail: 'Combines detection, motion, and re-identification across match footage.',
     visual: `<div class="pitch"><div class="pitch-goal top"></div><div class="pitch-goal bottom"></div><div class="tracking-line" style="left:22%;top:29%;width:34%;transform:rotate(24deg)"></div><div class="tracking-line" style="left:47%;top:55%;width:27%;transform:rotate(-31deg)"></div><span class="player-dot" style="top:21%;left:30%"><small>#07</small></span><span class="player-dot alt" style="top:34%;left:65%"><small>#12</small></span><span class="player-dot" style="top:55%;left:49%"><small>#03</small></span><span class="player-dot alt" style="top:69%;left:24%"><small>#18</small></span><span class="player-dot" style="top:77%;left:71%"><small>#09</small></span><div class="scanline"></div></div><div class="pitch-hud"><span>LIVE TRACKING</span><b>05 ACTIVE</b></div>`
   },
   {
@@ -37,6 +43,8 @@ const projects = [
     href: 'https://github.com/VED045/Face_Detection_Attendance',
     className: 'screen-face',
     metric: 'FACE DETECTION + OCR',
+    impact: 'AUTOMATED ATTENDANCE',
+    impactDetail: 'Turns classroom footage and roll-number OCR into lecture records.',
     visual: `<div class="face-art"><div class="face-outline"><i></i></div><span class="face-corner tl"></span><span class="face-corner tr"></span><span class="face-corner bl"></span><span class="face-corner br"></span></div><div class="scanline"></div><div class="face-metric"><span>IDENTITY VERIFIED</span><b>98.4% MATCH</b></div>`
   },
   {
@@ -48,6 +56,8 @@ const projects = [
     live: 'https://telemedx.netlify.app/',
     className: 'screen-tele',
     metric: 'TOP 10 / TECHFIESTA',
+    impact: 'TOP 10 OF 400+ TEAMS',
+    impactDetail: 'Connected appointments, prescriptions, payments, and health data.',
     visual: `<div class="tele-visual"><div class="tele-banner"><div><strong>Your health,<br>your way.</strong><span>PERSONALIZED CARE</span></div><div class="tele-cross">✳</div></div><div class="tele-subtitle">UPCOMING APPOINTMENTS</div><div class="tele-appointment"><div class="tele-avatar">✚</div><div><strong>Video consultation</strong><small>General care · Today</small></div><b>10:30</b></div><div class="tele-appointment"><div class="tele-avatar">♥</div><div><strong>Health sync</strong><small>Google Fit connected</small></div><b>LIVE</b></div></div>`
   },
   {
@@ -58,6 +68,8 @@ const projects = [
     href: 'https://github.com/VED045/Diabetes_Prediction_TechRush25',
     className: 'screen-diabetes',
     metric: '1ST / IEEE TECHRUSH',
+    impact: '#1 AT IEEE TECHRUSH',
+    impactDetail: 'Award-winning predictive health model built for earlier insight.',
     visual: `<div class="diabetes-visual"><span class="risk-label">MODEL CONFIDENCE</span><div class="risk-score">97.4<span> % ACCURACY</span></div><div class="risk-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="risk-grid"><div><small>MODEL</small><strong>ML</strong></div><div><small>RESULT</small><strong>READY</strong></div></div><div class="risk-wave"></div></div>`
   }
 ];
@@ -70,13 +82,14 @@ const phone = document.getElementById('phone');
 const stage = document.getElementById('device-stage');
 const counter = document.getElementById('project-counter');
 const rotateButton = document.getElementById('rotate-phone');
+const sPen = document.getElementById('s-pen');
 let activeProject = 0;
 let transitionTimer = 0;
 
 function renderProject(index, immediate = false) {
   const project = projects[index];
   const update = () => {
-    content.innerHTML = `<div class="screen-app ${project.className}"><div class="screen-top"><span>VED / LABS</span><span class="screen-top-dot">✳</span></div><div class="screen-head"><span class="screen-eyebrow">${project.category}</span><h3>${project.title.replace('\n', '<br>')}</h3><p>${project.description}</p></div><div class="screen-visual">${project.visual}</div><div class="screen-bottom"><div class="screen-bottom-label"><span>SELECTED PROJECT</span><span>${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span></div><a href="${project.live || project.href}" target="_blank" rel="noopener noreferrer">${project.live ? 'OPEN LIVE PROJECT' : 'VIEW ON GITHUB'} <span>↗</span></a><div class="screen-footnote">${project.metric}</div></div></div>`;
+    content.innerHTML = `<div class="screen-app ${project.className}"><div class="screen-top"><span>VED / LABS</span><span class="screen-top-dot">✳</span></div><div class="screen-head"><span class="screen-eyebrow">${project.category}</span><h3>${project.title.replace('\n', '<br>')}</h3><p>${project.description}</p></div><div class="screen-visual">${project.visual}</div><div class="screen-impact"><span>PROJECT IMPACT</span><strong>${project.impact}</strong><small>${project.impactDetail}</small></div><div class="screen-bottom"><div class="screen-bottom-label"><span>SELECTED PROJECT</span><span>${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span></div><a href="${project.live || project.href}" target="_blank" rel="noopener noreferrer">${project.live ? 'OPEN LIVE PROJECT' : 'VIEW ON GITHUB'} <span>↗</span></a><div class="screen-footnote">${project.metric}</div></div></div>`;
     counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}`;
     panel.setAttribute('aria-labelledby', `project-tab-${index}`);
     content.classList.remove('is-changing');
@@ -104,8 +117,18 @@ function selectProject(index, focusTab = false) {
   renderProject(activeProject);
 }
 
+function focusPhone() {
+  stage.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+  stage.classList.remove('is-focused');
+  requestAnimationFrame(() => stage.classList.add('is-focused'));
+  setTimeout(() => stage.classList.remove('is-focused'), 950);
+}
+
 tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => selectProject(i));
+  tab.addEventListener('click', event => {
+    selectProject(i);
+    if (event.target.closest('.project-arrow')) focusPhone();
+  });
   tab.addEventListener('keydown', event => {
     if (event.key === 'ArrowDown' || event.key === 'ArrowRight') { event.preventDefault(); selectProject(i + 1, true); }
     if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') { event.preventDefault(); selectProject(i - 1, true); }
@@ -115,6 +138,12 @@ tabs.forEach((tab, i) => {
 });
 document.getElementById('prev-project').addEventListener('click', () => selectProject(activeProject - 1));
 document.getElementById('next-project').addEventListener('click', () => selectProject(activeProject + 1));
+sPen.addEventListener('click', () => {
+  selectProject(activeProject + 1);
+  sPen.classList.remove('is-clicked');
+  requestAnimationFrame(() => sPen.classList.add('is-clicked'));
+  setTimeout(() => sPen.classList.remove('is-clicked'), 420);
+});
 rotateButton.addEventListener('click', () => {
   const flipped = phone.classList.toggle('flipped');
   rotateButton.setAttribute('aria-label', flipped ? 'Rotate phone to view the screen' : 'Rotate phone to view the back');
