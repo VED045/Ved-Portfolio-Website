@@ -289,6 +289,40 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
   document.body.classList.remove('menu-open');
 }));
 
+const resumeModal = document.getElementById('resume-modal');
+const resumeClose = document.getElementById('resume-close');
+let resumeReturnFocus = null;
+
+function openResume() {
+  resumeReturnFocus = document.activeElement;
+  resumeModal.hidden = false;
+  document.body.classList.add('resume-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Open menu');
+  mobileNav.hidden = true;
+  document.body.classList.remove('menu-open');
+  resumeClose.focus();
+}
+
+function closeResume() {
+  resumeModal.hidden = true;
+  document.body.classList.remove('resume-open');
+  resumeReturnFocus?.focus();
+}
+
+document.querySelectorAll('.resume-trigger').forEach(button => button.addEventListener('click', openResume));
+document.querySelectorAll('[data-resume-close]').forEach(button => button.addEventListener('click', closeResume));
+document.addEventListener('keydown', event => {
+  if (resumeModal.hidden) return;
+  if (event.key === 'Escape') { closeResume(); return; }
+  if (event.key !== 'Tab') return;
+  const focusable = [...resumeModal.querySelectorAll('a[href], button:not([disabled])')];
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
 const progress = document.querySelector('.scroll-progress');
 let scrollTicking = false;
@@ -315,12 +349,13 @@ const terminalBody = document.getElementById('terminal-body');
 const terminalForm = document.getElementById('terminal-form');
 const terminalInput = document.getElementById('terminal-input');
 const commandResponses = {
-  help: 'COMMANDS: projects · experience · about · contact · skills · clear',
+  help: 'COMMANDS: projects · experience · about · resume · contact · skills · clear',
   whoami: 'Ved Deshpande — engineer working across AI, vision, and the web.',
   skills: 'Java · Python · React · Spring Boot · FastAPI · LLMs · RAG · OpenCV',
   projects: 'Opening selected work: Daily News Intelligence, TripMate, and more.',
   experience: 'Opening experience: Barclays India, Tenancy Passport, Thelios.ai.',
   about: 'Opening the story behind the work.',
+  resume: 'Opening Ved’s resume inside the portfolio.',
   contact: 'Opening contact links.'
 };
 
@@ -343,7 +378,8 @@ function runCommand(raw) {
   terminalLine(`❯ ${command}`, 'terminal-line terminal-entered');
   terminalLine(commandResponses[command] || `Command not found: ${command}. Try help.`, 'terminal-output terminal-response');
   while (terminalBody.children.length > 16) terminalBody.firstElementChild.remove();
-  if (['projects', 'experience', 'about', 'contact'].includes(command)) {
+  if (command === 'resume') setTimeout(openResume, 320);
+  else if (['projects', 'experience', 'about', 'contact'].includes(command)) {
     const target = document.getElementById(command === 'projects' ? 'work' : command);
     setTimeout(() => target.scrollIntoView({ behavior: prefersReducedMotion ? 'instant' : 'smooth', block: 'start' }), 320);
   }

@@ -7,6 +7,7 @@ An interactive portfolio for **Ved Deshpande**. It presents selected AI, compute
 - Interactive, rotatable laptop terminal in the hero section
 - Fully draggable 3D Galaxy S26 Ultra concept project viewer
 - Machined aluminum device edges, detailed rear cameras, and a draggable S Pen controller
+- In-site resume viewer with keyboard controls and a PDF download fallback
 - Pop-up front camera and detailed rear camera interaction
 - Six featured projects, with real interface captures for Daily News Intelligence and TripMate
 - Project impact readouts in the project list and upward arrows that bring the phone into focus
