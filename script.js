@@ -4,7 +4,7 @@ const projects = [
     category: 'AI / NEWS INTELLIGENCE',
     title: 'The day,\ndistilled.',
     description: 'AI-curated headlines, trends, bookmarks, and a daily digest.',
-    href: 'https://github.com/VED045/daily-news-intelligence',
+    href: 'https://github.com/VED045/Dainik-Vidya',
     className: 'screen-news',
     metric: 'GEMINI + FASTAPI + REACT',
     visual: `<div class="product-shot news-shot"><div class="shot-browser"><i></i><i></i><i></i><span>dainik-vidya / dashboard</span></div><img class="live-product-capture dainik-product-capture" src="assets/dainik-vidya-screen.png" alt="Actual Dainik Vidya dashboard webpage"><div class="shot-caption"><span>ACTUAL WEB APP</span><strong>TOP 10 · NEWS · TRENDS</strong></div></div>`

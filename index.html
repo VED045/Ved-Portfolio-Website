@@ -52,7 +52,7 @@
           <div class="hero-bottom">
             <p>I’m <strong>Ved Deshpande</strong> — an engineer making ambitious ideas feel real through AI, computer vision, and full-stack code.</p>
             <div class="hero-actions">
-              <button class="hero-resume resume-trigger" type="button"><span>PROFILE / CV</span>VIEW RESUME <b aria-hidden="true">↗</b></button>
+              <button class="hero-resume resume-trigger" type="button">VIEW RESUME <b aria-hidden="true">↗</b></button>
               <a class="round-link" href="#work" aria-label="Explore six selected projects"><span class="explore-orbit" aria-hidden="true"></span><span class="explore-copy"><small>06 SELECTED PROJECTS</small><strong>EXPLORE WORK</strong></span><span class="explore-arrow" aria-hidden="true">↘</span></a>
             </div>
           </div>
@@ -71,7 +71,7 @@
                     <div class="terminal-output terminal-name">Ved Deshpande<span class="terminal-cursor">_</span></div>
                     <div class="terminal-output terminal-muted">AI engineer / developer / maker of things that matter</div>
                     <div class="terminal-line terminal-spaced"><span class="terminal-prompt">❯</span> ls ~/featured</div>
-                    <div class="terminal-output terminal-folders"><span>daily-news-intelligence/</span><span>TripMate/</span><span>computer-vision/</span></div>
+                    <div class="terminal-output terminal-folders"><span>Dainik-Vidya/</span><span>TripMate/</span><span>computer-vision/</span></div>
                   </div>
                   <form class="terminal-form" id="terminal-form" autocomplete="off"><label for="terminal-input" class="terminal-prompt">❯</label><input id="terminal-input" name="command" type="text" maxlength="32" spellcheck="false" aria-label="Terminal command" placeholder="type help and press enter" /><button type="submit" aria-label="Run command">↵</button></form>
                 </div>
@@ -170,10 +170,26 @@
       <section class="resume-dialog">
         <header class="resume-toolbar">
           <div><span>PROFILE / DOCUMENT</span><h2 id="resume-title">VED DESHPANDE — RESUME</h2></div>
-          <div class="resume-actions"><a href="./assets/ved-deshpande-resume.pdf" download>DOWNLOAD PDF <span>↓</span></a><button type="button" id="resume-close" data-resume-close aria-label="Close resume">CLOSE <span>×</span></button></div>
+          <div class="resume-actions"><a href="./assets/ved-deshpande-resume.pdf" download>DOWNLOAD PDF <span>↓</span></a><button class="resume-close" type="button" id="resume-close" data-resume-close aria-label="Close resume"><span aria-hidden="true">×</span></button></div>
         </header>
         <div class="resume-viewer">
-          <div class="resume-page"><img src="./assets/ved-deshpande-resume-preview.png" alt="Ved Deshpande resume — education, skills, experience, projects, achievements, and leadership" width="1406" height="1988"></div>
+          <div class="resume-page" aria-label="Resume pages">
+            <div class="resume-pages">
+              <img src="./assets/ved-deshpande-resume-preview.png" alt="Ved Deshpande resume — education, skills, experience, projects, achievements, and leadership" width="1406" height="1988">
+              <!-- Add another rendered page image here when the resume grows beyond one page. -->
+            </div>
+          </div>
+          <nav class="resume-link-dock" aria-label="Resume quick links">
+            <span>OPEN A LINK</span>
+            <div class="resume-link-track">
+              <a href="mailto:veddeshpandework@gmail.com">EMAIL ↗</a>
+              <a href="https://www.linkedin.com/in/ved-deshpande-a632b7282/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+              <a href="https://github.com/VED045" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+              <a href="https://github.com/VED045/Dainik-Vidya" target="_blank" rel="noopener noreferrer">DAINIK-VIDYA ↗</a>
+              <a href="https://github.com/VED045/Face_Detection_Attendance" target="_blank" rel="noopener noreferrer">FACE ATTENDANCE ↗</a>
+              <a href="https://github.com/VED045/Players_Tracking_Repo_Ved" target="_blank" rel="noopener noreferrer">PLAYER TRACKING ↗</a>
+            </div>
+          </nav>
           <p>Prefer a file copy? <a href="./assets/ved-deshpande-resume.pdf" download>Download the resume PDF</a>.</p>
         </div>
       </section>
