@@ -117,3 +117,8 @@
 
 /* Override the legacy nth-of-type camera rule so the lower auxiliary lens matches the reference. */
 .camera-array i.camera-flash{left:86px;top:78px;width:16px;height:16px}.camera-array i.camera-sensor{left:78px;top:125px;width:34px;height:34px;margin:0;border:3px solid #1d1d27;border-radius:50%;background:radial-gradient(circle at 37% 32%,#426787 0 6%,#101a28 10% 21%,#05070b 27% 55%,#4f5064 61% 69%,#0c0d13 75%);box-shadow:0 0 0 2px #b5b3c3,0 0 0 4px #4c4a62,0 5px 9px rgba(8,6,20,.45)}
+
+/* S26 RIGHT CAMERA COLUMN — adjust left to move sideways and top to change spacing. */
+.camera-array .lens-zoom{left:87px;top:12px}
+.camera-array i.camera-flash{left:98px;top:69px}
+.camera-array i.camera-sensor{left:85px;top:105px}
