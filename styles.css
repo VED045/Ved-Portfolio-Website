@@ -124,3 +124,11 @@
 .camera-array .lens-zoom{top:12px}
 .camera-array i.camera-flash{left:calc(var(--aux-column-left) + 11px);top:69px;width:var(--aux-flash-size);height:var(--aux-flash-size)}
 .camera-array i.camera-sensor{top:105px}
+
+/* Center the three large lenses inside the raised bordered camera rail. */
+.camera-array .lens-main,.camera-array .lens-wide,.camera-array .lens-tele{left:7px}
+
+/* Hero actions stay separated from the introduction on every phone width. */
+.hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:11px;flex:none}.hero-resume{display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(214,255,90,.4);border-radius:999px;background:rgba(11,17,19,.72);color:var(--text);font:600 9px var(--mono);letter-spacing:.1em;transition:transform .25s,border-color .25s,background .25s}.hero-resume span{color:var(--lime);font-size:7px}.hero-resume b{font-size:14px;font-weight:400}.hero-resume:hover{transform:translateY(-2px);border-color:var(--lime);background:rgba(214,255,90,.11)}
+@media(max-width:650px){.hero-bottom{flex-direction:column;align-items:flex-start;gap:20px}.hero-bottom p{max-width:100%}.hero-actions{width:100%;flex-direction:row;align-items:center;gap:12px}.hero-resume{height:62px;min-width:126px;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;padding:9px 12px;font-size:8px}.hero-resume b{position:absolute;right:11px;bottom:10px;font-size:13px}.hero-resume{position:relative}.round-link{flex:none}}
+@media(max-width:375px){.hero-actions{gap:8px}.hero-resume{min-width:112px}.round-link{width:112px}}
