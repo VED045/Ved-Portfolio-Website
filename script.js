@@ -1,6 +1,6 @@
-const projects = [
+const projectData = [
   {
-    name: 'Daily News Intelligence',
+    name: 'Dainik Vidya',
     category: 'AI / NEWS INTELLIGENCE',
     title: 'The day,\ndistilled.',
     description: 'AI-curated headlines, trends, bookmarks, and a daily digest.',
@@ -42,7 +42,7 @@ const projects = [
     visual: `<div class="product-shot terra-shot"><div class="shot-browser"><i></i><i></i><i></i><span>terra lab / network studio</span></div><img class="live-product-capture" src="assets/terra-lab-screen.png" alt="Terra Lab terrestrial network studio"><div class="shot-caption"><span>RESEARCH STUDIO</span><strong>NETWORK · RANGE · SIMULATION</strong></div></div>`
   },
   {
-    name: 'Player Tracking',
+    name: 'Player Tracking in Football',
     category: 'COMPUTER VISION / SPORTS',
     title: 'Every move.\nIn focus.',
     description: 'Real-time player detection and identity tracking across a football match.',
@@ -55,7 +55,7 @@ const projects = [
     visual: `<div class="pitch"><div class="pitch-goal top"></div><div class="pitch-goal bottom"></div><div class="tracking-line" style="left:22%;top:29%;width:34%;transform:rotate(24deg)"></div><div class="tracking-line" style="left:47%;top:55%;width:27%;transform:rotate(-31deg)"></div><span class="player-dot" style="top:21%;left:30%"><small>#07</small></span><span class="player-dot alt" style="top:34%;left:65%"><small>#12</small></span><span class="player-dot" style="top:55%;left:49%"><small>#03</small></span><span class="player-dot alt" style="top:69%;left:24%"><small>#18</small></span><span class="player-dot" style="top:77%;left:71%"><small>#09</small></span><div class="scanline"></div></div><div class="pitch-hud"><span>LIVE TRACKING</span><b>05 ACTIVE</b></div>`
   },
   {
-    name: 'Face Attendance',
+    name: 'Facial Recognition for Classrooms',
     category: 'AI / EDUCATION',
     title: 'A smarter\nclassroom.',
     description: 'Recognition, OCR, and transcription working together to simplify attendance.',
@@ -95,6 +95,8 @@ const projects = [
     visual: `<div class="diabetes-visual"><span class="risk-label">MODEL CONFIDENCE</span><div class="risk-score">97.4<span> % ACCURACY</span></div><div class="risk-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="risk-grid"><div><small>MODEL</small><strong>ML</strong></div><div><small>RESULT</small><strong>READY</strong></div></div><div class="risk-wave"></div></div>`
   }
 ];
+
+const projects = [projectData[2], projectData[0], projectData[1], ...projectData.slice(3)];
 
 const projectList = document.querySelector('.project-list');
 projectList.innerHTML = projects.map((project, index) => {
