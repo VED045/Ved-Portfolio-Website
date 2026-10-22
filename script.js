@@ -5,6 +5,10 @@ const projects = [
     title: 'The day,\ndistilled.',
     description: 'AI-curated headlines, trends, bookmarks, and a daily digest.',
     href: 'https://github.com/VED045/Dainik-Vidya',
+    live: 'https://dainik-vidya.vercel.app/',
+    summary: 'A smarter way to catch up: AI-curated stories, trends, bookmarks, and daily digests.',
+    tags: ['FastAPI', 'Gemini', 'React'],
+    impact: ['Combines independent sources into one editorial news workspace.', 'Provides AI-curated stories, trends, bookmarks, and daily digests.'],
     className: 'screen-news',
     metric: 'GEMINI + FASTAPI + REACT',
     visual: `<div class="product-shot news-shot"><div class="shot-browser"><i></i><i></i><i></i><span>dainik-vidya / dashboard</span></div><img class="live-product-capture dainik-product-capture" src="assets/dainik-vidya-screen.png" alt="Actual Dainik Vidya dashboard webpage"><div class="shot-caption"><span>ACTUAL WEB APP</span><strong>TOP 10 · NEWS · TRENDS</strong></div></div>`
@@ -15,9 +19,27 @@ const projects = [
     title: 'Every trip.\nTogether.',
     description: 'Shared expenses, memories, and trip insights for the whole crew.',
     href: 'https://github.com/VED045/TripMate',
+    live: 'https://trip-mate-drab.vercel.app/',
+    summary: 'One shared home for group expenses, settlements, memories, and trip insights.',
+    tags: ['Next.js', 'Supabase', 'PWA'],
+    impact: ['Keeps group expenses, settlements, memories, and plans in one shared trip hub.', 'Makes group travel coordination easier to understand and act on.'],
     className: 'screen-trip',
     metric: 'NEXT.JS + SUPABASE + PWA',
     visual: `<div class="product-shot trip-shot"><div class="shot-browser"><i></i><i></i><i></i><span>tripmate / live product</span></div><img class="live-product-capture" src="assets/tripmate-screen.png" alt="TripMate live website interface"><div class="shot-caption"><span>LIVE UI CAPTURE</span><strong>PLAN · SPLIT · VAULT</strong></div></div>`
+  },
+  {
+    name: 'Terra Lab',
+    category: 'RESEARCH / SPATIAL SYSTEMS',
+    title: 'Signal, made\nvisible.',
+    description: 'A spatial research studio for modelling terrestrial networks and simulation results.',
+    href: 'https://github.com/VED045/Terra-Lab',
+    live: 'https://terra-lab-wine.vercel.app/studio',
+    summary: 'A research studio for building, inspecting, and simulating terrestrial network scenarios.',
+    tags: ['React', 'Simulation', 'Research'],
+    impact: ['Brings transmitters, receivers, range, and error data into one visual workspace.', 'Lets a research workflow move from network layout to measurable simulation insight.'],
+    className: 'screen-terra',
+    metric: 'NETWORK STUDIO + SIMULATION',
+    visual: `<div class="product-shot terra-shot"><div class="shot-browser"><i></i><i></i><i></i><span>terra lab / network studio</span></div><img class="live-product-capture" src="assets/terra-lab-screen.png" alt="Terra Lab terrestrial network studio"><div class="shot-caption"><span>RESEARCH STUDIO</span><strong>NETWORK · RANGE · SIMULATION</strong></div></div>`
   },
   {
     name: 'Player Tracking',
@@ -25,6 +47,9 @@ const projects = [
     title: 'Every move.\nIn focus.',
     description: 'Real-time player detection and identity tracking across a football match.',
     href: 'https://github.com/VED045/Players_Tracking_Repo_Ved',
+    summary: 'Following every move on the pitch with YOLOv8 and ResNet50.',
+    tags: ['YOLOv8', 'ByteTrack', 'ResNet50'],
+    impact: ['Maintains player identities by combining detection, motion, and re-identification.', 'Tracks movement through a match even when players cross and occlude one another.'],
     className: 'screen-player',
     metric: 'YOLOv8 + RESNET50',
     visual: `<div class="pitch"><div class="pitch-goal top"></div><div class="pitch-goal bottom"></div><div class="tracking-line" style="left:22%;top:29%;width:34%;transform:rotate(24deg)"></div><div class="tracking-line" style="left:47%;top:55%;width:27%;transform:rotate(-31deg)"></div><span class="player-dot" style="top:21%;left:30%"><small>#07</small></span><span class="player-dot alt" style="top:34%;left:65%"><small>#12</small></span><span class="player-dot" style="top:55%;left:49%"><small>#03</small></span><span class="player-dot alt" style="top:69%;left:24%"><small>#18</small></span><span class="player-dot" style="top:77%;left:71%"><small>#09</small></span><div class="scanline"></div></div><div class="pitch-hud"><span>LIVE TRACKING</span><b>05 ACTIVE</b></div>`
@@ -35,6 +60,9 @@ const projects = [
     title: 'A smarter\nclassroom.',
     description: 'Recognition, OCR, and transcription working together to simplify attendance.',
     href: 'https://github.com/VED045/Face_Detection_Attendance',
+    summary: 'A smarter classroom workflow for recognition and lecture records.',
+    tags: ['Face detection', 'OCR', 'Speech-to-text'],
+    impact: ['Turns classroom video and roll-number OCR into automated attendance records.', 'Connects recognition, transcription, and lecture workflow in one system.'],
     className: 'screen-face',
     metric: 'FACE DETECTION + OCR',
     visual: `<div class="face-art"><div class="face-outline"><i></i></div><span class="face-corner tl"></span><span class="face-corner tr"></span><span class="face-corner bl"></span><span class="face-corner br"></span></div><div class="scanline"></div><div class="face-metric"><span>IDENTITY VERIFIED</span><b>98.4% MATCH</b></div>`
@@ -46,6 +74,9 @@ const projects = [
     description: 'A connected platform for appointments, prescriptions, and health sync.',
     href: 'https://github.com/VED045/TeleMedX_TechFiesta_25',
     live: 'https://telemedx.netlify.app/',
+    summary: 'Appointments, prescriptions, and connected care in one place.',
+    tags: ['MERN', 'Google Fit', 'Razorpay'],
+    impact: ['Top 10 from 400+ teams with connected appointments, prescriptions, and health data.', 'Brings care scheduling, payments, and health syncing into one flow.'],
     className: 'screen-tele',
     metric: 'TOP 10 / TECHFIESTA',
     visual: `<div class="tele-visual"><div class="tele-banner"><div><strong>Your health,<br>your way.</strong><span>PERSONALIZED CARE</span></div><div class="tele-cross">✳</div></div><div class="tele-subtitle">UPCOMING APPOINTMENTS</div><div class="tele-appointment"><div class="tele-avatar">✚</div><div><strong>Video consultation</strong><small>General care · Today</small></div><b>10:30</b></div><div class="tele-appointment"><div class="tele-avatar">♥</div><div><strong>Health sync</strong><small>Google Fit connected</small></div><b>LIVE</b></div></div>`
@@ -56,11 +87,22 @@ const projects = [
     title: 'Insight before\nit matters.',
     description: 'A predictive model that turns health data into earlier insight.',
     href: 'https://github.com/VED045/Diabetes_Prediction_TechRush25',
+    summary: 'An award-winning ML model built to support earlier insight.',
+    tags: ['ML', 'Predictive analytics'],
+    impact: ['Won 1st place at IEEE TechRush with a predictive model for earlier health insight.', 'Makes model confidence and risk assessment clear at a glance.'],
     className: 'screen-diabetes',
     metric: '1ST / IEEE TECHRUSH',
     visual: `<div class="diabetes-visual"><span class="risk-label">MODEL CONFIDENCE</span><div class="risk-score">97.4<span> % ACCURACY</span></div><div class="risk-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="risk-grid"><div><small>MODEL</small><strong>ML</strong></div><div><small>RESULT</small><strong>READY</strong></div></div><div class="risk-wave"></div></div>`
   }
 ];
+
+const projectList = document.querySelector('.project-list');
+projectList.innerHTML = projects.map((project, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  const actions = `${project.live ? `<a class="project-action project-live" href="${project.live}" target="_blank" rel="noopener noreferrer">VISIT WEBSITE <span>↗</span></a>` : ''}<a class="project-action" href="${project.href}" target="_blank" rel="noopener noreferrer">VIEW ON GITHUB <span>↗</span></a>`;
+  const details = project.impact.map((detail, detailIndex) => `<div><b>${String(detailIndex + 1).padStart(2, '0')}</b><span>${detail}</span></div>`).join('');
+  return `<div class="project-item${index === 0 ? ' is-active' : ''}" role="tab" aria-selected="${index === 0}" aria-controls="phone-project" id="project-tab-${index}" data-project="${index}" tabindex="${index === 0 ? 0 : -1}"><span class="project-number">${number}</span><span class="project-main"><span class="project-type">${project.category}</span><strong>${project.name}</strong><span class="project-summary">${project.summary}</span><span class="project-tags">${project.tags.map(tag => `<i>${tag}</i>`).join('')}</span><span class="project-actions">${actions}</span><button class="project-impact-toggle" type="button" aria-expanded="false">VIEW IMPACT <span>+</span></button><span class="project-impact-details" aria-hidden="true">${details}</span></span><button class="project-arrow" type="button" title="Show ${project.name} on the phone" aria-label="Show ${project.name} on the phone">↑</button></div>`;
+}).join('');
 
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const tabs = [...document.querySelectorAll('.project-item')];
@@ -77,7 +119,7 @@ let transitionTimer = 0;
 function renderProject(index, immediate = false) {
   const project = projects[index];
   const update = () => {
-    content.innerHTML = `<div class="screen-app ${project.className}"><div class="screen-top"><span>VED / LABS</span><span class="screen-top-dot">✳</span></div><div class="screen-head"><span class="screen-eyebrow">${project.category}</span><h3>${project.title.replace('\n', '<br>')}</h3><p>${project.description}</p></div><div class="screen-visual">${project.visual}</div><div class="screen-bottom"><div class="screen-bottom-label"><span>SELECTED PROJECT</span><span>${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span></div><a href="${project.live || project.href}" target="_blank" rel="noopener noreferrer">${project.live ? 'OPEN LIVE PROJECT' : 'VIEW ON GITHUB'} <span>↗</span></a><div class="screen-footnote">${project.metric}</div></div></div>`;
+    content.innerHTML = `<div class="screen-app ${project.className}"><div class="screen-top"><span>VED / LABS</span><span class="screen-top-dot">✳</span></div><div class="screen-head"><span class="screen-eyebrow">${project.category}</span><h3>${project.title.replace('\n', '<br>')}</h3><p>${project.description}</p></div><div class="screen-visual">${project.visual}</div><div class="screen-bottom"><div class="screen-bottom-label"><span>SELECTED PROJECT</span><span>${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span></div><div class="screen-links">${project.live ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer">VISIT WEBSITE <span>↗</span></a>` : ''}<a href="${project.href}" target="_blank" rel="noopener noreferrer">VIEW GITHUB <span>↗</span></a></div><div class="screen-footnote">${project.metric}</div></div></div>`;
     counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}`;
     panel.setAttribute('aria-labelledby', `project-tab-${index}`);
     content.classList.remove('is-changing');
@@ -114,6 +156,7 @@ function focusPhone() {
 
 tabs.forEach((tab, i) => {
   tab.addEventListener('click', event => {
+    if (event.target.closest('.project-action, .project-impact-toggle')) return;
     selectProject(i);
     if (event.target.closest('.project-arrow')) focusPhone();
   });
@@ -461,5 +504,18 @@ document.querySelectorAll('.experience-card').forEach(card => {
       card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
     }, { passive: true });
   }
+});
+
+document.querySelectorAll('.project-item').forEach(card => {
+  const toggle = card.querySelector('.project-impact-toggle');
+  const details = card.querySelector('.project-impact-details');
+  toggle.addEventListener('click', event => {
+    event.stopPropagation();
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    toggle.innerHTML = `${expanded ? 'VIEW' : 'HIDE'} IMPACT <span>${expanded ? '+' : '−'}</span>`;
+    card.classList.toggle('impact-expanded', !expanded);
+    details.setAttribute('aria-hidden', String(expanded));
+  });
 });
 
